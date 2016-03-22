@@ -98,14 +98,14 @@
       <div class="col-sm-3">
         <h3>Mobility</h3><br><br><br>     
         <form id="reset_1_2">
-        <input type="text" class="textField" id="mobility">
-        <label>cm<sup>2</sup>/Vs</label>
+          <input type="text" class="textField" id="mobility" required>
+          <label>cm<sup>2</sup>/Vs</label>
+          <br>
+          <a href="#mob_curve">Mobility Curve</a>
+          <br>
+          <button class="btn btn-default" onClick="Diffusitivity()" value="Calculate Diffusivity">Calculate</button>
+          <br>
         </form>
-        <a href="#mob_curve">Mobility Curve</a>
-        <br>
-        <br>
-        <input type="button" class="btn btn-default" onClick="Diffusitivity()" value="Calculate Diffusivity">
-        <br>
       </div>
       <div class="col-sm-3">
         <h3>Electric Field</h3><br><br><br>
@@ -319,7 +319,7 @@
               <label>cm<sup>-3</sup></label><br>
               <label>N side, Nd:</label> <input type="text" id="pnd_NdCon" value="1e+15">
               <label>cm<sup>-3</sup></label><br><br><br>
-              <label> Bias:</label>
+              <label>Bias:</label>
               <input type="text" id="pnd_V_d" size="12" value="0">
               <label>V</label>
               <label>Area: </label><input type="text" id="pnd_A" size="12" value="1"><label>cm<sup>2</sup></label><br> 
@@ -428,7 +428,7 @@
   	<div clss="row">
     	<div class="col-sm-3">
         </div>
-      	<img src="graphs/MobilityCurve.png" width="663" height="485" alt=""/>
+      	<img src="graphs/MobilityCurve.png" width="663" height="485" alt="Mobility Curve">
     </div>
   </div>      
   <br><br><br>    
