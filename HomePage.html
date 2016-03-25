@@ -11,14 +11,16 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<style>
-	  body{position:relative;top: 55px;overflow-y:scroll; min-width: 1000px;  }
+	  body{position:relative;top: 55px;overflow-y:scroll; min-width: 1000px; }
 	  .caption{position: fixed;max-width: 250px;padding-top: 3px;padding-right: 3px;padding-bottom: 3px;padding-left: 3px;font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;font-weight: lighter;font-style: italic;text-align: center;text-decoration: none;font-size: 90%;right:5px;bottom:25px;z-index:2;background-color:rgba(255,255,255,0.5);}
 	  #navbar{background-color:rgba(68,68,68,1.00);}
-	  #pnJunction{background-color:rgb(255,255,255); -webkit-box-sizing:border-box;-moz-box-sizing:border-box; box-sizing:border-box; }
+	  #pnJunction{background-color:rgb(233,230,235); -webkit-box-sizing:border-box;-moz-box-sizing:border-box; box-sizing:border-box; }
 	  #result{background-color: rgba(17,64,108,0.70);}
 	  #cap_calc{background-color:rgb(138,171,202);}
 	  #mosfet{background-color: rgba(27,152,255,1.00);}
-	  #unit_converter{background-color:rgba(3,41,81,0.5);}
+	  #unit_converter{background-color:rgb(253,233,205);}
+	  #mos_cap{background-color: rgb(69,88,89)}
+	  #pnDiode{background-color: rgb(115,57,57)}
 	  .container-fluid{position: relative; }
 	  .container {padding: 80px 120px;}
 	  .scroll_spy{padding:50px;}
@@ -36,7 +38,7 @@
 	 .navbar-toggle{margin-top: 15px;margin-right: 25px;margin-bottom: 5px;}
 	 .navbar-collapse{margin-left:10px; padding-left:30px;}
    	 .vertical-centered{margin:0; top: 50%;transform: translateY(50%);}
-   	 .body-bgc{background-color:rgb(233,242,249);}
+   	 .body-bgc{background-color:rgb(250,255,250);}
 	 footer {background-color: #2d2d30;color: #f5f5f5;padding: 32px;}
 	 footer a {color: #f5f5f5;}
 	 footer a:hover {color: #777;text-decoration: none;}
@@ -256,7 +258,7 @@
             <br>
             <div class="row">
               <div class="col-xs-3">
-                <label>Cureent Density (holes) =</label>
+                <label>Cureent Density(h) =</label>
               </div>
               <div class="col-xs-6">
                 <input type="text" class="form-control" id="output_currentDen_p" readonly>
@@ -269,7 +271,7 @@
             <div class="row">
               <div class="col-xs-3">
                 <label>
-                  Cureent Density(electrons) =
+                  Cureent Density(e) =
                 </label>
               </div>
               <div class="col-xs-6">
@@ -459,7 +461,7 @@
 				        	<label>cm</label>
 				        </div>
 			        </div>
-			        <br><br>
+			        <br>
 			        <div class="row">
 		        		<div class="col-xs-3">
 		        			<h4 class="text-center">
@@ -536,13 +538,13 @@
                 <label>V </label>
                 <label>Threshold Voltage =</label>
                 <input type="text" class="form-control" id="MOS_output_Vt" size="12"readonly>
-                <label>V </label><br><br>
+                <label>V </label>
                 <label>X<sub>d0</sub> =</label>
                 <input type="text" class="form-control" id="MOS_output_xd0" size="12"readonly>
                 <label>cm </label>
                 <label>X<sub>d</sub> =</label>
                 <input type="text" class="form-control" id="MOS_output_xd" size="12"readonly>
-                <label>cm </label><br><br>
+                <label>cm </label>
                 <label>C<sub>ox</sub> =</label>
                 <input type="text" class="form-control" id="MOS_output_cox" size="12"readonly>
                 <label>F </label>
