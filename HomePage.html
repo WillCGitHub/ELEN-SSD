@@ -9,16 +9,17 @@
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.min.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<style>
-	  body{position:relative;top: 55px;overflow-y:scroll; min-width: 1000px;}
+	  body{position:relative;top: 55px;overflow-y:scroll; min-width: 1000px;  }
 	  .caption{position: fixed;max-width: 250px;padding-top: 3px;padding-right: 3px;padding-bottom: 3px;padding-left: 3px;font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;font-weight: lighter;font-style: italic;text-align: center;text-decoration: none;font-size: 90%;right:5px;bottom:25px;z-index:2;background-color:rgba(255,255,255,0.5);}
 	  #navbar{background-color:rgba(68,68,68,1.00);}
-	  #pnJunction{background-color:rgb(255,255,255); }
-	  #result{background-color: rgba(17,64,108,0.70);padding:50px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box; box-sizing:border-box; }
+	  #pnJunction{background-color:rgb(255,255,255); -webkit-box-sizing:border-box;-moz-box-sizing:border-box; box-sizing:border-box; }
+	  #result{background-color: rgba(17,64,108,0.70);}
 	  #cap_calc{background-color:rgb(138,171,202);}
 	  #mosfet{background-color: rgba(27,152,255,1.00);}
 	  #unit_converter{background-color:rgba(3,41,81,0.5);}
-	  .container-fluid{position: relative;}
+	  .container-fluid{position: relative; }
 	  .container {padding: 80px 120px;}
 	  .scroll_spy{padding:50px;}
 	  label{color: rgba(50,50,50,1.00);font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
@@ -34,7 +35,8 @@
 	 .navbar-brand{ padding-top: 5px;margin-left:15px;}
 	 .navbar-toggle{margin-top: 15px;margin-right: 25px;margin-bottom: 5px;}
 	 .navbar-collapse{margin-left:10px; padding-left:30px;}
-   .vertical-centered{margin:0; top: 50%;transform: translateY(50%);}
+   	 .vertical-centered{margin:0; top: 50%;transform: translateY(50%);}
+   	 .body-bgc{background-color:rgb(233,242,249);}
 	 footer {background-color: #2d2d30;color: #f5f5f5;padding: 32px;}
 	 footer a {color: #f5f5f5;}
 	 footer a:hover {color: #777;text-decoration: none;}
@@ -50,7 +52,7 @@
 	</script>-->
 </head>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="200">
+<body data-spy="scroll" data-target=".navbar" data-offset="200" class="body-bgc">
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid" id="navbar">
       <div class="navbar-header">
@@ -76,165 +78,156 @@
       </div>
     </div>
   </nav>
-  <div class="container-fluid">
+  <div class="container-fluid" style="max-width: 720px;">
     <div class="caption">
         <p >Samples are at 300K in the dark, assuming the depletion approximation for p-n junctions, and the
             inversion approximation for MOS capacitors.All raw data can be found in console.</p>
     </div>
     <div id="top">
     </div>
-    <div class="container-fluid">
-      <div class="row scroll_spy" id="pnJunction">
-        <div class="col-sm-4">
-         <div class = "row">
+    <div class="row scroll_spy" id="pnJunction">
+      <div class="col-xs-12">
+       <div class = "row">
+        <div class="col-xs-12">
+          <h3 class="text-center">
+            PN Junction
+          </h3>
+          <br><br><br>
+        </div>
+        
+       </div>
+        <form id="reset_1_1">
+        <div class = "row">
           <div class="col-xs-3">
+            <label>P-region N<sub>a</sub>:</label> 
           </div>
           <div class="col-xs-6">
-            <h3 class="text-center">
-              PN Junction
-            </h3>
-            <br><br><br>
+            <input name="DopantConcentration" class="form-control" type="text" id="NaCon" value="1e+15"> 
           </div>
           <div class="col-xs-3">
+            <label>cm<sup>-3</sup></label><br><br><br>
           </div>
-         </div>
-          <form id="reset_1_1">
+        </div>
           <div class = "row">
             <div class="col-xs-3">
-              <label>P-region N<sub>a</sub>:</label> 
+            <label>N-region N<sub>d</sub>:</label> 
             </div>
             <div class="col-xs-6">
-              <input name="DopantConcentration" class="form-control" type="text" id="NaCon" value="1e+15"> 
+            <input name="DopantConcentration" class="form-control" type="text" id="NdCon" value="1e+15">
             </div>
-            <div class="col-xs-3">
-              <label>cm<sup>-3</sup></label><br><br><br>
+            <div class="col-xs-2">
+            <label>cm<sup>-3</sup></label><br><br><br>
             </div>
           </div>
-            <div class = "row">
-              <div class="col-xs-3">
-              <label>N-region N<sub>d</sub>:</label> 
-              </div>
-              <div class="col-xs-6">
-              <input name="DopantConcentration" class="form-control" type="text" id="NdCon" value="1e+15">
-              </div>
-              <div class="col-xs-2">
-              <label>cm<sup>-3</sup></label><br><br><br>
-              </div>
-            </div>
-            <div class = "row">
-              <div class="col-xs-3">
-                <label>Reverse bias:</label>
-              </div>
-              <div class="col-xs-6">
-                <input type="text" class="form-control" id="V_RB">
-              </div>
-              <div class="col-xs-3">
-                <label>V</label>
-              </div>
-            </div>
-          </form> 
-        </div>
-        <div class="col-sm-4">
-          <div class="row">
+          <div class = "row">
             <div class="col-xs-3">
+              <label>Reverse bias:</label>
             </div>
             <div class="col-xs-6">
-              <h3 class="text-center">
-                Mobility
-              </h3><br><br><br>
+              <input type="text" class="form-control" id="V_RB">
             </div>
             <div class="col-xs-3">
-            </div>
-          </div>  
-          <div class="row">   
-            <form id="reset_1_2">
-              <div class="row">
-                <div class="col-xs-3">
-                  <label>Mobility:</label> 
-                </div>
-                <div class="col-xs-6">
-                  <input type="text" class="form-control" id="mobility" required>
-                </div>
-                <div class="col-xs-3">
-                  <label>cm<sup>2</sup>/Vs</label>
-                </div>
-              </div>
-              <br>
-              <br>
-              <button type = "button"class="btn btn-default btn-block" onClick="Diffusitivity();" value="Calculate Diffusivity">
-                Calculate Diffusivity
-              </button>
-              <br>
-            </form>
-          </div>
-          <div class="row">
-                  <a href="#mob_curve" class="btn btn-default btn-block btn-info">   
-                    Mobility Curve
-                  </a>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="row">
-            <div class="col-xs-2">
-            </div>
-            <div class="col-xs-8">
-              <h3 class="text-center">
-                E-Field &amp; Diffusivity
-              </h3><br><br><br>
-            </div>
-            <div class="col-xs-2">
+              <label>V</label>
             </div>
           </div>
-          <form id="reset_1_3">
+        </form> 
+      </div>
+      <div class="col-xs-12">
+        <div class="row">
+          <div class="col-xs-12">
+            <h3 class="text-center">
+              Mobility
+            </h3><br>
+          </div>
+        </div>  
+        <div class="row">   
+          <form id="reset_1_2">
             <div class="row">
               <div class="col-xs-3">
-                <label>
-                  E-filed:
-                </label>
+                <label>Mobility:</label> 
               </div>
               <div class="col-xs-6">
-                <input type="text" class="form-control" id="electricField">
+                <input type="text" class="form-control" id="mobility" required>
               </div>
               <div class="col-xs-3">
-                <label>
-                  cm/V
-                </label>
+                <label>cm<sup>2</sup>/Vs</label>
               </div>
-              </div>
+            </div>
             <br>
             <br>
             <div class="row">
-              <div class="col-xs-3">
-                <label>Diffusivity:</label> 
-              </div> 
-              <div class="col-xs-6">
-                <input type="text" class="form-control" id="diffusivity"> 
-              </div>
-              <div class="col-xs-3">
-                <label>
-                  cm<sup>2</sup>/s
-                </label>
-              </div>
+            	<div class="col-xs-4 col-xs-offset-4">
+              	<button type = "button"class="btn btn-success btn-block" onClick="Diffusitivity();" value="Calculate Diffusivity">
+                	Calculate Diffusivity
+              	</button>
+            	</div>
             </div>
+            <br>
           </form>
-          <br>
         </div>
         <div class="row">
-        <!--Space-->
-        </div>
-        <div class="row">
-          <br>
-          <div class="col-xs-4 col-xs-offset-4">
-            <input type="button" class="btn btn-primary btn-block" onClick="Execute_pn()" value="Calculate">
-            <input type="reset" class="btn btn-danger btn-block" onClick= "Reset_form(1)" value="Reset">
+        	<div class="col-xs-4 col-xs-offset-4">
+            <a href="#mob_curve" class="btn btn-block btn-info">
+            	<i class="fa fa-question-circle"></i>  Mobility Curve
+            </a>
           </div>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="row">
+          <div class="col-xs-12">
+            <h3 class="text-center">
+              E-Field &amp; Diffusivity
+            </h3><br>
+          </div>
+        </div>
+        <form id="reset_1_3">
+          <div class="row">
+            <div class="col-xs-3">
+              <label>
+                E-filed:
+              </label>
+            </div>
+            <div class="col-xs-6">
+              <input type="text" class="form-control" id="electricField">
+            </div>
+            <div class="col-xs-3">
+              <label>
+                cm/V
+              </label>
+            </div>
+            </div>
+          <br>
+          <br>
+          <div class="row">
+            <div class="col-xs-3">
+              <label>Diffusivity:</label> 
+            </div> 
+            <div class="col-xs-6">
+              <input type="text" class="form-control" id="diffusivity"> 
+            </div>
+            <div class="col-xs-3">
+              <label>
+                cm<sup>2</sup>/s
+              </label>
+            </div>
+          </div>
+        </form>
+        <br>
+      </div>
+      <div class="row">
+      <!--Space-->
+      </div>
+      <div class="row">
+        <br>
+        <div class="col-xs-8 col-xs-offset-2">
+          <input type="button" class="btn btn-primary btn-block" onClick="Execute_pn()" value="Calculate">
+          <input type="reset" class="btn btn-danger btn-block" onClick= "Reset_form(1)" value="Reset">
         </div>
       </div>
     </div>
       <div class="row" id="result">        
-        <div class="col-sm-3">
-        </div>
-        <div class="col-sm-6">
+        <div class="col-xs-12">
           <div class="row">
             <div class="col-xs-4">
             </div>
@@ -250,31 +243,31 @@
           <br>
           <form>
             <div class="row">
-              <div class="col-xs-4">
+              <div class="col-xs-3">
                 <label>Built-in Potential =</label>
               </div>
               <div class="col-xs-6">
                 <input type="text" class="form-control" id="output_Potential" readonly>
               </div>
-              <div class="col-xs-2">
+              <div class="col-xs-3">
                 <label>V</label>
               </div>
             </div>
             <br>
             <div class="row">
-              <div class="col-xs-4">
+              <div class="col-xs-3">
                 <label>Cureent Density (holes) =</label>
               </div>
               <div class="col-xs-6">
                 <input type="text" class="form-control" id="output_currentDen_p" readonly>
               </div>
-              <div class="col-xs-2">
+              <div class="col-xs-3">
                 <label>A/cm<sup>2</sup></label>
               </div>
             </div>
             <br>
             <div class="row">
-              <div class="col-xs-4">
+              <div class="col-xs-3">
                 <label>
                   Cureent Density(electrons) =
                 </label>
@@ -282,7 +275,7 @@
               <div class="col-xs-6">
                 <input type="text" class="form-control" id="output_currentDen_n" readonly>
               </div>
-              <div class="col-xs-2">
+              <div class="col-xs-3">
                 <label>
                   A/cm<sup>2</sup>
                 </label>
@@ -290,7 +283,7 @@
             </div>
             <br>
             <div class="row">
-              <div class="col-xs-4">
+              <div class="col-xs-3">
                 <label>
                   Resistivity(p) =
                 </label>
@@ -298,7 +291,7 @@
               <div class="col-xs-6">
                 <input type="text" class="form-control" id="output_resistivity_p" readonly>
               </div>
-              <div class="col-xs-2">
+              <div class="col-xs-3">
                 <label>
                   &Omega;
                 </label>
@@ -306,7 +299,7 @@
             </div>
             <br>
             <div class="row">
-              <div class="col-xs-4">
+              <div class="col-xs-3">
                 <label>
                   Resistivity(n) =
                 </label>
@@ -314,13 +307,13 @@
               <div class="col-xs-6">
                 <input type="text" class="form-control" id="output_resistivity_n" readonly>
               </div>
-              <div class="col-xs-2">
+              <div class="col-xs-3">
                 <label>ohm</label>
               </div>
             </div>
             <br>
             <div class="row">
-              <div class="col-xs-4">
+              <div class="col-xs-3">
                 <label>
                   X<sub>p</sub> =
                 </label>
@@ -328,7 +321,7 @@
               <div class="col-xs-6">
                 <input type="text" class= "form-control" id="output_depletionRegion_p" readonly>
               </div>
-              <div class="col-xs-2">
+              <div class="col-xs-3">
                 <label>
                   nm
                 </label>
@@ -336,19 +329,19 @@
             </div>
             <br>
             <div class="row">
-              <div class="col-xs-4">
+              <div class="col-xs-3">
                 <label>X<sub>n</sub> =</label>
               </div>
               <div class="col-xs-6">
                 <input type="text" class= "form-control" id="output_depletionRegion_n" readonly>
               </div>
-              <div class="col-xs-2">
+              <div class="col-xs-3">
                 <label>nm</label>
               </div>
             </div>
             <br>
             <div class="row">
-              <div class="col-xs-4">
+              <div class="col-xs-3">
                 <label>
                   X<sub>d</sub> =
                 </label>
@@ -356,7 +349,7 @@
               <div class="col-xs-6">
                 <input type="text" class="form-control" id="output_depletionRegion_d" readonly>
               </div>
-              <div class="col-xs-2">
+              <div class="col-xs-3">
                 <label>
                   nm
                 </label>
@@ -364,7 +357,7 @@
             </div>
             <br>
             <div class="row">
-              <div class="col-xs-4">
+              <div class="col-xs-3">
                 <label>
                   Capacitance =
                 </label>
@@ -372,7 +365,7 @@
               <div class="col-xs-6">
                 <input type="text" class= "form-control" id="output_capacitance" readonly>
               </div>
-              <div class="col-xs-2">
+              <div class="col-xs-3">
                 <label>
                   nF
                 </label>
@@ -380,44 +373,134 @@
             </div>  
             <br>
           </form>
-        </div>
-        <div class="col-sm-3">
+          <br>
+   			  <br>
+    		  <br>
         </div>
       </div>
-    
+
     <div class="row scroll_spy" id="cap_calc">
-        <div class="col-sm-12  " >
-                <div class="col-sm-4">
-                </div>
-                <div class="col-sm-4">
-                <h3> Cpacitance calculator</h3><br><br>
-                <form>
-                <label>Xd =</label> 
-                <input type="text" id="cap_clac" value="1*1e-7"> 
-                <label>cm</label><br>
-                <label>Capacitance = </label>
-                <input type="text" id="output_cap_clac" readonly>
-                <label>nF</label><br><br>
-                <button type="button" class="btn btn-default" onClick="Cap_calc()"> Calculate</button>
-                <button type="reset" class="btn btn-default">Reset</button><br>
-                </form><br><br><br>
-                <form>
-                <label>t_ox =</label> 
-                <input type="text" id="cap_ox_clac" value="1*1e-7"> 
-                <label>cm</label><br><br>
-                <label>Capacitance = </label>
-                <input type="text" id="output_cap_ox_clac" readonly>
-                <label>nF</label><br><br>
-                <button type="button" class="btn btn-default" onClick="Cap_ox_calc()">Calculate</button>
-                <button type="reset" class="btn btn-default">Reset</button><br>
-                </form><br><br>
-                </div>
-            </div>
+        <div class="col-xs-12" >
+	        <h3 class="text-center"> Cpacitance Calculator</h3><br><br>
+	    </div>
+	    <div class="row">
+	        <form>
+	        	<div class="row">
+		        	<div class="col-xs-3">
+				        <h4 class="text-center">
+				        	<label>
+				        		Xd =
+				        	</label>
+				        </h4> 
+			        </div>
+			        <div class="col-xs-6">
+			        	<input class="form-control" type="text" id="cap_clac" value="1*1e-7"> 
+			        </div>
+			        <div class="col-xs-3">
+				        <label>
+				        	cm
+				        </label>
+			        </div>
+		        </div>
+		        <div class="row">
+		        	<!--space-->
+		        	<br>
+		        </div>
+		        <div class="row">
+		        	<div class="col-xs-3">
+		        		<h4 class="text-center">
+					        <label>
+					        	Capacitance = 
+					        </label>
+					    </h4>
+			        </div>
+			        <div class="col-xs-6">
+			        	<input class="form-control"type="text" id="output_cap_clac" readonly>
+			        </div>
+			        <div class="col-xs-3">
+				        <label>
+				        	nF
+				        </label>
+				    </div>
+			    </div>
+			    <br>
+			    <br>
+			    <div class="row">
+		    		<div class="col-xs-4 col-xs-offset-4">
+			        	<button type="button" class="btn btn-primary btn-block" onClick="Cap_calc()"> 
+			        		Calculate
+			        	</button>
+		        	</div>
+		        	<br>
+		        	<br>
+		        	<div class="col-xs-4 col-xs-offset-4">
+		        		<button type="reset" class="btn btn-danger btn-block">
+		        			Reset
+		        		</button>
+		        	</div>
+		        	<br>
+		        </div>
+		    </form>
+		    <br><br><br>
+		    <form>
+		    	<div class="row">
+		    		<div class="row">
+			    		<div class="col-xs-3">
+			    			<h4 class="text-center">
+						        <label>
+						        	t_ox =
+						        </label>
+					        </h4>
+				        </div> 
+				        <div class="col-xs-6">
+				        	<input class="form-control"type="text" id="cap_ox_clac" value="1*1e-7"> 
+				        </div>
+				        <div class="col-xs-3">
+				        	<label>cm</label>
+				        </div>
+			        </div>
+			        <br><br>
+			        <div class="row">
+		        		<div class="col-xs-3">
+		        			<h4 class="text-center">
+						        <label>
+						        	Capacitance = 
+						        </label>
+					        </h4>
+				        </div>
+				        <div class="col-xs-6">
+				        	<input class="form-control"type="text" id="output_cap_ox_clac" readonly>
+				        </div>
+				        <div class="col-xs-3">
+					        <label>
+					        	nF
+					        </label>
+				        </div>
+			        </div>
+			        <br><br>
+			        <div class="row">
+			        	<div class="col-xs-4 col-xs-offset-4">
+					        <button type="button" class="btn btn-primary btn-block" onClick="Cap_ox_calc()">
+					        	Calculate
+					        </button>
+				        </div>
+				        <br>
+				        <br>
+				        <div class="col-xs-4 col-xs-offset-4">
+					        <button type="reset" class="btn btn-danger btn-block">
+					        	Reset
+					        </button>
+				        </div>
+				        <br>
+			        </div>
+		        </div>
+	        </form><br><br>
+        </div>
     </div>
     <div class="row scroll_spy" id="mos_cap">
-    	<div class="col-sm-12">
+    	<div class="col-xs-12">
         <h3>MOS capacitor</h3><br><br>
-        	<div class="col-sm-4">
+        	<div class="col-xs-12">
             <form>
             	<label>Gate Type</label><br>
             	<input name="GateType"type="radio"  value="p+" checked>
@@ -443,9 +526,9 @@
                 <input type="reset" class= "btn btn-default" value="Reset">
             </form>
             </div>
-            <div class="col-sm-2">
+            <div class="col-xs-12">
             </div>
-            <div class="col-sm-6">
+            <div class="col-xs-12">
                 <h3>Result</h3><br>
             	<form>
                 <label>Flatband Voltage =</label>
@@ -474,9 +557,9 @@
         </div>
     </div>
     <div class="row scroll_spy" id="mosfet">
-    	<div class="col-sm-12">
+    	<div class="col-xs-12">
         	<h3>MOSFET</h3><br><br>
-        	<div class="col-sm-5">
+        	<div class="col-xs-12">
               <form>
               <label>Type</label><br>
               <input name="MosfetType"type="radio"  value="PMOS" checked>
@@ -503,9 +586,9 @@
               <input type="reset" class= "btn btn-default" value = "Reset">
               </form> 
             </div>
-            <div class="col-sm-1">
+            <div class="col-xs-12">
             </div>
-            <div class="col-sm-6">
+            <div class="col-xs-12">
             	<h3>Result</h3><br>
             	<form>
                 <label>Region of Operation =</label>
@@ -521,8 +604,8 @@
         </div>
     </div>
     <div class="row scroll_spy" id="pnDiode">
-    	<div class="col-sm-12">
-        	<div class="col-sm-4">
+    	<div class="col-xs-12">
+        	<div class="col-xs-12">
               <h3>PN Diode</h3><br>
               <form>
               <label>P side, Na:</label> <input type="text" id="pnd_NaCon" value="1e+15"> 
@@ -539,7 +622,7 @@
               <input type="reset" class= "btn btn-default" value = "Reset">
               </form> 
             </div>
-            <div class="col-sm-3">
+            <div class="col-xs-12">
               <h3> <a href="#pnJunction">Diffusivity: </a></h3><br>
               <form>
                 <label>Dp: </label><input type="text" id="pnd_diff_p" value = "33"><label>cm<sup>2</sup>/s</label><br>
@@ -550,7 +633,7 @@
                 <input type="reset" class= "btn btn-default" value="Reset">
               </form>
             </div>
-            <div class="col-sm-5">
+            <div class="col-xs-12">
             	<h3>Result</h3><br>
             	<form>
                 <label>Built-in Potential =</label>
@@ -602,18 +685,12 @@
     </div>
     <div class="row scroll_spy" id="unit_converter">
         <div class="row">
-          <div class="col-xs-3">
-          </div>
-          <div class="col-xs-6">
+          <div class="col-xs-12">
             <div class="row">
-              <div class="col-xs-2">
-              </div>
-              <div class="col-xs-8">
+              <div class="col-xs-12">
                 <h3 class="text-center">
                   Unit Converter
                 </h3>
-              </div>
-              <div class="col-xs-2">
               </div>
             </div>
             <br>
@@ -622,7 +699,7 @@
                 <div class="col-xs-2 col-xs-offset-5">
                   <div class="col-xs-2 col-xs-offset-1">
                     <button type="button" class="btn btn-default" onClick="Exchange()"> 
-                    &harr;
+                    	&harr;
                     </button>
                   </div>
                 </div>
@@ -670,7 +747,7 @@
               <br>
               <br>
               <div class="row">
-                <button type="button" class="btn btn-success btn-block" onClick="Convert()">
+                <button type="button" class="btn btn-primary btn-block" onClick="Convert()">
                   Convert
                 </button>
                 <button type="reset" class="btn btn-danger btn-block">
@@ -681,14 +758,15 @@
           </div>
         </div>
     </div>
+    <div class="img" id="mob_curve">
+  		<div clss="row">
+	    	<div class="col-xs-12">
+	      		<img src="graphs/MobilityCurve.png" class="img-responsive" alt="Mobility Curve">
+	      	</div>
+    	</div>
+    </div>    
   </div>
-  <div class="img" id="mob_curve">
-  	<div clss="row">
-    	<div class="col-sm-3">
-        </div>
-      	<img src="graphs/MobilityCurve.png" class="img-responsive" alt="Mobility Curve">
-    </div>
-  </div>      
+    
   <br><br><br>    
 </body>
 
