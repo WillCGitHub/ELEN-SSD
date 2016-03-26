@@ -379,17 +379,19 @@
           <br>
           <div class="row">
             <div class="col-xs-4 col-xs-offset-4">
-              <button id="copy" class="btn btn-success btn-block" onclick="CopyToClip()">
-                copy
+              <button id="copybtn" class="btn btn-success btn-block" onclick="CopyToClipResult()">
+                Copy Result
               </button>
             </div>
           </div>
-          
    			  <br>
     		  <br>
         </div>
       </div>
-
+      <!--This field is to store above results and copy-->
+        <textarea class="code_input", id="ta", rows="20" cols="60" style="display:none;"> 
+          
+        </textarea>
     <div class="row scroll_spy" id="cap_calc">
         <div class="col-xs-12" >
 	        <h3 class="text-center"> Cpacitance Calculator</h3><br><br>
