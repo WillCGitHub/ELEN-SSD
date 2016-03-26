@@ -8,17 +8,44 @@ function CopyToClip(){
 */
 
 /*
-	This is the prototype for the function, 
-	it basiclly select the data in a specific input|text field,
-	then copy...
+	Create a small textarea, put the data into it and copy to the 
+	clipboard, then discard the textarea.
 */
-function CopyToClip(){
-	output_Potential.select();
-	document.execCommand('copy');
+function copyTextToClipboard(){
+	
+	var textArea=document.createElement("textarea");
+
+	//build a fake hidden textArea to hold the data need to copy
+	textArea.style.position='fixed';
+	textArea.style.top='0';
+	textArea.style.left='0';
+	textArea.style.width='2em';
+	textArea.style.height='2em';
+	
+	//reduce flash
+	textArea.style.padding=0;
+
+	//make it as invisal as possible
+	textArea.style.border='none';
+	textArea.style.outline='none';
+	textArea.style.boxShadow='none';
+	textArea.style.background='transparent';
+
+	//compute ans
+	var ans=buildAnsString();
+	textArea.value=ans;
+
+	document.body.appendChild(textArea);
+	textArea.select();                   ////document.getElementById('<id>').select();
+	document.execCommand('copy'); 		 //copy
+	document.body.removeChild(textArea); //remove this text area
 }
 
-function CopyToClipResult(){
-	var buffer="";
+/*
+	Function to build a well format string(text) 	
+*/
+function buildAnsString(){
+	buffer="";
 
 	//read data
 	var Potential = document.getElementById("output_Potential");   //match the order of the UI
@@ -42,10 +69,5 @@ function CopyToClipResult(){
 		buffer=buffer+tag[i]+" "+data[i]+"\n";
 	}
 
-	//put into text hidden field ta
-	document.getElementById('ta').value=buffer;
-
-	//copy to the clopboard
-	ta.select('AnsTextArea');
-	document.execCommand('copy');
+	return buffer;
 }
