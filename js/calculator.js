@@ -63,28 +63,27 @@ function Calculate_pn(NaCon,NdCon,mobility,electricField){
 	x_d = cm_nm(x_d);
 	cap = F_nF(cap);
 	//displaying
+	var display_Potential = document.getElementById("output_Potential");   //match the order of the UI
 	var display_currentDen_p = document.getElementById("output_currentDen_p");
 	var display_currentDen_n = document.getElementById("output_currentDen_n");
 	var display_resistivity_p = document.getElementById("output_resistivity_p");
 	var display_resistivity_n = document.getElementById("output_resistivity_n");
-	var display_Potential = document.getElementById("output_Potential");
 	var display_DepRegion_p = document.getElementById("output_depletionRegion_p");
 	var display_DepRegion_n = document.getElementById("output_depletionRegion_n");
 	var display_DepRegion_d = document.getElementById("output_depletionRegion_d");
 	var display_Capacitance = document.getElementById("output_capacitance");
 	
+	display_Potential.value = (phi_b.toFixed(2));//match the order
 	display_currentDen_p.value = (currentDensity_p); 
 	display_currentDen_n.value = (currentDensity_n); 
 	display_resistivity_p.value = (res_p.toExponential());
 	display_resistivity_n.value = (res_n.toExponential());
-	display_Potential.value = (phi_b.toFixed(2));
 	display_DepRegion_p.value = (x_po.toFixed(2));
 	display_DepRegion_n.value = (x_no.toFixed(2));
 	display_DepRegion_d.value = (x_d.toFixed(2));
 	display_Capacitance.value = (cap.toFixed(2));
 	}
-	
-
+				
 function Current_density(carrier_density,mobility, electricField){
 	var currentDensity = q*carrier_density*mobility*electricField;
 	return currentDensity;
