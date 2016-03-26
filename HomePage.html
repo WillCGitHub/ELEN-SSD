@@ -222,13 +222,19 @@
       </div>
       <div class="row">
         <br>
-        <div class="col-xs-8 col-xs-offset-2">
-          <input type="button" class="btn btn-primary btn-block" onClick="Execute_pn()" value="Calculate">
-          <input type="reset" class="btn btn-danger btn-block" onClick= "Reset_form(1)" value="Reset">
+        <div class="row">
+        	<div class="col-xs-4 col-xs-offset-4">
+          	<input type="button" class="btn btn-primary btn-block" onClick="Execute_pn()" value="Calculate">
+            </div>
+            <br>
+            <br>
+            <div class="col-xs-4 col-xs-offset-4">
+          	<input type="reset" class="btn btn-danger btn-block" onClick= "Reset_form(1)" value="Reset">
+            </div>
         </div>
       </div>
     </div>
-      <div class="row" id="result">        
+    <div class="row" id="result">        
         <div class="col-xs-12">
           <div class="row">
             <div class="col-xs-4">
@@ -378,8 +384,7 @@
           <br>
           <div class="row">
             <div class="col-xs-4 col-xs-offset-4">
-              <button class="btn btn-success btn-block" id="PN_CopyResults">
-              <button class="btn btn-success btn-block">
+              <button class="btn btn-success btn-block" onClick="CopyToClipResult()" id="PN_CopyResults">
                 Copy Results
               </button>
             </div>
@@ -389,7 +394,6 @@
     		  <br>
         </div>
       </div>
-
     <div class="row scroll_spy" id="cap_calc">
         <div class="col-xs-12" >
 	        <h3 class="text-center"> Cpacitance Calculator</h3><br><br>
@@ -509,110 +513,415 @@
         </div>
     </div>
     <div class="row scroll_spy" id="mos_cap">
-    	<div class="col-xs-12">
-        <h3>MOS capacitor</h3><br><br>
-        	<div class="col-xs-12">
-            <form>
-            	<label>Gate Type</label><br>
-            	<input name="GateType"type="radio"  value="p+" checked>
-                <label>p+</label><br>
-                <input name="GateType" type="radio" value="n+">
-                <label>n+</label><br><br>
-                <label>Oxide thickness:</label>
-                <input type="text" id="moscap_t_ox" size="12"value="10">
-                <label>nm</label>
-                <label> Bias:</label>
-                <input type="text" id="Mos_GB" size="12" value="0">
-                <label>V</label><br><br><br>
-                <label>Semiconductor portion</label><br>         
-                <input name="mos_semiconducter" type="radio" value="Nd" checked>
-                <label> Nd: </label>
-                <input type="text" id="mos_semi_Nd" value="1e15">
-                <label>cm<sup>-3</sup></label><br>         
-                <input name="mos_semiconducter" type="radio" value="Na">
-                <label> Na: </label>
-                <input type="text" id="mos_semi_Na">
-                <label>cm<sup>-3</sup></label><br><br><br>
-                <input type="button" class= "btn btn-default" onClick="Execute_moscap()" value="Calculate">
-                <input type="reset" class= "btn btn-default" value="Reset">
-            </form>
-            </div>
-            <div class="col-xs-12">
-            </div>
-            <div class="col-xs-12">
-                <h3>Result</h3><br>
-            	<form>
-                <label>Flatband Voltage =</label>
-                <input type="text" class="form-control" id="MOS_output_Vfb" size="12"readonly>
-                <label>V </label>
-                <label>Threshold Voltage =</label>
-                <input type="text" class="form-control" id="MOS_output_Vt" size="12"readonly>
-                <label>V </label>
-                <label>X<sub>d0</sub> =</label>
-                <input type="text" class="form-control" id="MOS_output_xd0" size="12"readonly>
-                <label>cm </label>
-                <label>X<sub>d</sub> =</label>
-                <input type="text" class="form-control" id="MOS_output_xd" size="12"readonly>
-                <label>cm </label>
-                <label>C<sub>ox</sub> =</label>
-                <input type="text" class="form-control" id="MOS_output_cox" size="12"readonly>
-                <label>F </label>
-                <label>C<sub>b</sub> =</label>
-                <input type="text" class="form-control" id="MOS_output_cb" size="12"readonly>
-                <label>F </label>
-                <label>C<sub>d total</sub> =</label>
-                <input type="text" class="form-control" id="MOS_output_cd_total" size="12"readonly>
-                <label>F </label> 
-                </form>           
-            </div>
+    <div class="col-xs-12">
+        <div class="row">
+        <h3 class="text-center">
+          MOS capacitor
+        </h3>
+      </div>
+      <br>
+      <form>
+        <div class="row">
+          <div class="col-xs-4">
+            <h5 class="text-center">
+              Gate Type:
+            </h5>
+          </div>
+
+          <div class="col-xs-4">  
+            <h5 class="text-center">
+              Oxide thickness:
+            </h5>
+          </div>
+
+          <div class="col-xs-3">
+            <h5 class="text-center">
+              Bias:
+            </h5>
+          </div>
         </div>
+        <div class="row">
+          <div class="col-xs-4">
+            <div class="col-xs-12">   
+              <div class="col-xs-6">        
+                <input name="GateType"type="radio"  value="p+" checked>
+                <label>
+                  p+
+                </label>
+              </div>
+              <div class="col-xs-6">  
+                <input name="GateType" type="radio" value="n+">
+                <label>
+                  n+
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-4">
+           
+            <div class="col-xs-8">
+              <input class= "form-control"type="text" id="moscap_t_ox" size="12"value="10">
+            </div>
+            <div class="col-xs-2">
+              <label>
+                nm
+              </label>
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <div class="row">
+                <div class="col-xs-8">
+                  <input class="form-control"type="text" id="Mos_GB" size="12" value="0">
+                </div>
+                <div class="col-xs-2">
+                  <label>
+                    V
+                  </label>
+                </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="row">
+            <div class="col-xs-12">
+              <h4 class="text-center">
+                <label>
+                  Semiconductor portion
+                </label>
+              </h4>
+            </div>
+          </div>
+          <br>
+          <div class="row">   
+            <div class="col-xs-3">
+              <input name="mos_semiconducter" type="radio" value="Nd" checked>
+              <label>
+                Nd: 
+              </label>
+            </div>
+            <div class="col-xs-6">
+              <input type="text" class="form-control"id="mos_semi_Nd" value="1e15">
+            </div>
+            <div class="col-xs-3">
+              <label>
+                cm<sup>-3</sup>
+              </label>
+            </div>
+          </div>
+          <br>
+          <div class="row"> 
+            <div class="col-xs-3">
+              <input name="mos_semiconducter" type="radio" value="Na">
+              <label> 
+                Na: 
+              </label>
+            </div>
+            <div class="col-xs-6">
+              <input class ="form-control"type="text" id="mos_semi_Na">
+            </div>
+            <div class="col-xs-3">
+            <label>
+              cm<sup>-3</sup>
+            </label>
+            </div>
+         </div>
+            <br><br><br>
+          <div class="row">
+             <div class="col-xs-4 col-xs-offset-4">
+              <input type="button" class= "btn btn-primary btn-block" onClick="Execute_moscap()" value="Calculate">
+              <input type="reset" class= "btn btn-danger btn-block" value="Reset">
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <div class="row">
+          <div class="row">
+          <h3 class="text-center">Result</h3>
+          </div>
+
+          <br>
+
+          <form>
+
+            <div class="row">
+              <div class="col-xs-3">
+                <label>Flatband Voltage =</label>
+              </div>
+              <div class="col-xs-6">
+                <input type="text" class="form-control" id="MOS_output_Vfb" size="12"readonly>
+              </div>
+              <div class="col-xs-3">
+                <label>V </label>
+              </div>
+            </div> 
+            <br>
+            <div class="row">
+              <div class="col-xs-3">
+                <label>Threshold Voltage =</label>
+              </div>
+              <div class="col-xs-6">
+                <input type="text" class="form-control" id="MOS_output_Vt" size="12"readonly>
+              </div>
+              <div class="col-xs-3">
+                <label>V </label>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-xs-3">
+                <label>X<sub>d0</sub> =</label>
+              </div>
+              <div class="col-xs-6">
+                <input type="text" class="form-control" id="MOS_output_xd0" size="12"readonly>
+              </div>
+              <div class="col-xs-3">
+                <label>cm </label>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-xs-3">
+                <label>X<sub>d</sub> =</label>
+              </div>
+              <div class="col-xs-6">
+                <input type="text" class="form-control" id="MOS_output_xd" size="12"readonly>
+              </div>
+              <div class="col-xs-3">
+                <label>cm </label>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-xs-3">
+                <label>C<sub>ox</sub> =</label>
+              </div>
+              <div class="col-xs-6">
+                <input type="text" class="form-control" id="MOS_output_cox" size="12"readonly>
+              </div>
+              <div class="col-xs-3">
+                <label>F </label>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-xs-3">
+                <label>C<sub>b</sub> =</label>
+              </div>
+              <div class="col-xs-6">
+                <input type="text" class="form-control" id="MOS_output_cb" size="12"readonly>
+              </div>
+              <div class="col-xs-3">
+                <label>F </label>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-xs-3">
+                <label>C<sub>d total</sub> =</label>
+              </div>
+              <div class="col-xs-6">
+                <input type="text" class="form-control" id="MOS_output_cd_total" size="12"readonly>
+              </div>
+              <div class="col-xs-3">
+                <label>F </label> 
+              </div>
+            </div>
+          </form>           
+        </div>
+      </div>
     </div>
+
     <div class="row scroll_spy" id="mosfet">
-    	<div class="col-xs-12">
-        	<h3>MOSFET</h3><br><br>
-        	<div class="col-xs-12">
+  
+        	<div class="row">
+        		<h3 class="text-center">MOSFET</h3>
+            </div>
+            <br>
+            <br>
+        	<div class="row">
               <form>
-              <label>Type</label><br>
-              <input name="MosfetType"type="radio"  value="PMOS" checked>
-              <label>PMOS</label><br>
-              <input name="MosfetType" type="radio" value="NMOS">
-              <label>NMOS</label><br><br>
-              <label>C<sub>ox</sub>:</label> <input type="text" size="12" id="MOSFET_cox" value="1e-10"> 
-              <label>F</label>
-              <label>Mobility:</label> <input type="text" size="12" id="MOSFET_mu" value="800" >
-              <label>cm<sup>2</sup>/VS</label><br><br>
-              <label>V<sub>GS</sub>:</label>
-              <input type="text" id="MOSFET_V_gs" size="12" value="1">
-              <label>V</label>
-              <label>V<sub>t</sub>:</label>
-              <input type="text" id="MOSFET_V_t" size="12" value="1.5">
-              <label>V</label>
-              <label>V<sub>DS</sub>:</label>
-              <input type="text" id="MOSFET_V_ds" size="12" value="1">
-              <label>V</label><br><br>
-              <label>&lambda; :</label><input type="text" id="MOSFET_lambda" size="12" value="1"><label> V<sup>-1</sup></label>
-              <label>W: </label><input type="text" id="MOSFET_W" size="12" value="1"><label> &mu;m</label>
-              <label>L: </label><input type="text" id="MOSFET_L" size="12" value="1"><label> &mu;m</label><br><br>
-              <input type="button" onClick="Execute_MOSFET()" class= "btn btn-default" value="Calculate">
-              <input type="reset" class= "btn btn-default" value = "Reset">
+              <div class="row">
+              	<div class="row">
+                	<div class="col-xs-4">
+                		<div class="col-xs-8 col-xs-offset-4">
+              				<label>Type:</label>
+                		</div>
+                	</div>
+                	<div class="col-xs-4">
+                		<div class="col-xs-8 col-xs-offset-4">
+              				<input name="MosfetType"type="radio"  value="PMOS" checked>
+              					<label>PMOS</label>
+                		</div>
+                	</div>
+                	<div class="col-xs-4">
+                		<div class="col-xs-8 col-xs-offset-4">
+              				<input name="MosfetType" type="radio" value="NMOS">
+              				<label>NMOS</label>
+                		</div>
+                	</div>
+                </div>
+                <br><br>
+              <div class="row">  
+              	<div class="col-xs-6">
+                	<div class="col-xs-3">
+              		<label>C<sub>ox</sub>:</label> 
+                    </div>
+                    <div class="col-xs-6">
+                    <input class="form-control" type="text" size="12" id="MOSFET_cox" value="1e-10"> 
+                    </div>
+                    <div class="col-xs-3">
+              		<label>F</label>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                	<div class="col-xs-3">
+             			<label>Mobility:</label> 
+                    </div>
+                    <div class="col-xs-6">
+                    	<input class="form-control" type="text" size="12" id="MOSFET_mu" value="800" >
+                    </div>
+                    <div class="col-xs-3">
+              			<label>cm<sup>2</sup>/VS</label>
+                    </div>
+                </div>
+              </div>
+              <br><br>
+              <div class="row">
+              	<div class="col-xs-4">
+              		<div class="col-xs-3">
+              			<label>V<sub>GS</sub>:</label>
+              		</div>
+              		<div class="col-xs-7">
+              			<input class="form-control" type="text" id="MOSFET_V_gs" size="12" value="1">
+              		</div>
+              		<div class="col-xs-2">
+              			<label>V</label>
+              		</div>
+              	</div>
+               
+              	<div class="col-xs-4">  
+              		<div class="col-xs-3">
+              			<label>V<sub>t</sub>:</label>
+              		</div>
+              		<div class="col-xs-7">
+              			<input class="form-control" type="text" id="MOSFET_V_t" size="12" value="1.5">
+              		</div>
+              		<div class="col-xs-2">
+              			<label>V</label>
+              		</div>
+              	</div>
+              
+              	<div class="col-xs-4">
+              		<div class="col-xs-3">
+              			<label>V<sub>DS</sub>:</label>
+              		</div>
+              		<div class="col-xs-7">
+              			<input class="form-control" type="text" id="MOSFET_V_ds" size="12" value="1">
+              		</div>
+              		<div class="col-xs-2">
+              			<label>V</label>
+              		</div>
+              	</div>
+              </div>
+              <br>
+              <br>
+              <div class="row">
+              	<div class="col-xs-4">
+                	<div class="col-xs-3">
+              			<label>&lambda; :</label>
+                    </div>
+                	<div class="col-xs-7">
+              			<input class="form-control" type="text" id="MOSFET_lambda" size="12" value="1">
+                	</div>
+                	<div class="col-xs-2">
+                		<label> V<sup>-1</sup></label>
+                	</div>
+                </div>
+                <div class="col-xs-4">
+                	<div class="col-xs-3">
+              			<label>W: </label>
+                    </div>
+                	<div class="col-xs-7">
+              			<input class="form-control" type="text" id="MOSFET_W" size="12" value="1">
+                	</div>
+                	<div class="col-xs-2">
+                		<label> &mu;m</label>
+                	</div>
+                </div>
+                <div class="col-xs-4">
+                	<div class="col-xs-3">
+              			<label>L: </label>
+                    </div>
+                	<div class="col-xs-7">
+              			<input class="form-control" type="text" id="MOSFET_L" size="12" value="1">
+                	</div>
+                	<div class="col-xs-2">
+                		<label> &mu;m</label>
+                	</div>
+                </div>
+              </div>
+              <br><br>
+              <div class="row">
+              <div class="col-xs-4 col-xs-offset-4">
+              <input type="button" onClick="Execute_MOSFET()" class= "btn btn-primary btn-block" value="Calculate">
+              </div>
+              <br>
+              <br>
+              <div class="col-xs-4 col-xs-offset-4">
+              <input type="reset" class= "btn btn-danger btn-block" value = "Reset">
+              </div>
+              </div>
+              </div>
               </form> 
             </div>
-            <div class="col-xs-12">
-            </div>
-            <div class="col-xs-12">
-            	<h3>Result</h3><br>
+            <br>
+            <br>
+            <div class="row">
+            	<div class="row">
+            		<h3 class="text-center">Result</h3>
+                </div>
+                <br>
+                <div>
             	<form>
-                <label>Region of Operation =</label>
-                <input type="text" class="form-control" id="MOSFET_output_ROP" size="12"readonly><br><br><br>
-                <label>I<sub>D</sub> =</label>
-                <input type="text" class="form-control" id="MOSFET_output_Id" size="12"readonly>
-                <label>A </label><br><br><br>
-                <label>Output Conductance =</label>
-                <input type="text" class="form-control" id="MOSFET_output_go" size="12"readonly>
-                <label>S </label><br><br>
-                </form>      
+                <div class="row">
+                	<div class="col-xs-3">
+                		<label>Region of Operation =</label>
+                	</div>
+                	<div class="col-xs-6">
+                		<input type="text" class="form-control" id="MOSFET_output_ROP" size="12"readonly>
+                	</div>
+                </div>
+                <br>
+                <div class="row">
+                	<div class="col-xs-3">
+                	<label>I<sub>D</sub> =</label>
+                    </div>
+                    <div class="col-xs-6">
+                	<input type="text" class="form-control" id="MOSFET_output_Id" size="12"readonly>
+                    </div>
+                    <div class="col-xs-3">
+                	<label>A </label>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                	<div class="col-xs-3">
+                	<label>Output Conductance =</label>
+                    </div>
+                    <div class="col-xs-6">
+                	<input type="text" class="form-control" id="MOSFET_output_go" size="12"readonly>
+                    </div>
+                    <div class="col-xs-3">
+                	<label>S </label>
+                    </div>
+                    <br><br>
+                </div>
+                </form>  
+                </div>    
             </div>
-        </div>
+
     </div>
     <div class="row scroll_spy" id="pnDiode">
     	<div class="col-xs-12">
@@ -758,12 +1067,18 @@
               <br>
               <br>
               <div class="row">
+              	<div class="col-xs-4 col-xs-offset-4">
                 <button type="button" class="btn btn-primary btn-block" onClick="Convert()">
                   Convert
                 </button>
+                </div>
+                <br>
+                <br>
+                <div class="col-xs-4 col-xs-offset-4">
                 <button type="reset" class="btn btn-danger btn-block">
                   Reset
                 </button>
+                </div>
               </div>
             </form>
           </div>
