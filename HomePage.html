@@ -58,7 +58,7 @@
 <body data-spy="scroll" data-target=".navbar" data-offset="200" class="body-bgc">
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid" id="navbar">
-      <div class="navbar-header">
+      <div class="navbar-header" >
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#ToggleNavBar">
         	<span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -387,6 +387,13 @@
             <div class="col-xs-4 col-xs-offset-4">
               <button id="copybtn" class="btn btn-success btn-block" onClick="copyTextToClipboard();">
                 Copy Results
+              </button>
+            </div>
+            <br>
+            <br>
+            <div class="col-xs-4 col-xs-offset-4">
+              <button id="copybtn" class="btn btn-info btn-block" onClick=" ">
+                <i class="fa fa-question-circle"></i> History
               </button>
             </div>
           </div>
@@ -925,80 +932,342 @@
     </div>
     <div class="row scroll_spy" id="pnDiode">
     	<div class="col-xs-12">
-        	<div class="col-xs-12">
-              <h3>PN Diode</h3><br>
-              <form>
-              <label>P side, Na:</label> <input type="text" id="pnd_NaCon" value="1e+15"> 
-              <label>cm<sup>-3</sup></label><br>
-              <label>N side, Nd:</label> <input type="text" id="pnd_NdCon" value="1e+15">
-              <label>cm<sup>-3</sup></label><br><br><br>
-              <label>Bias:</label>
-              <input type="text" id="pnd_V_d" size="12" value="0">
-              <label>V</label>
-              <label>Area: </label><input type="text" id="pnd_A" size="12" value="1"><label>cm<sup>2</sup></label><br> 
-              <label>Wp: </label><input type="text" id="pnd_Wp" size="12" value="1"><label> &mu;m</label>
-              <label>Wn: </label><input type="text" id="pnd_Wn" size="12" value="1"><label> &mu;m</label><br><br>
-              <input type="button" onClick="Execute_pnd()" class= "btn btn-default" value="Calculate">
-              <input type="reset" class= "btn btn-default" value = "Reset">
-              </form> 
+              		<h3 class="text-center">PN Diode</h3><br>
+                </div>
+        <div class="row">
+        	<form>
+        		<div class="row">
+            	<div class="col-xs-6">
+                	<div class="col-xs-3">
+              			<label>P side, Na:</label> 
+                	</div>
+                	<div class="col-xs-6">
+              			<input class="form-control" type="text" id="pnd_NaCon" value="1e+15"> 
+                	</div>
+                	<div class="col-xs-3">
+              			<label>cm<sup>-3</sup></label>
+                	</div>
+              	</div>
+                <div class="col-xs-6">
+                	<div class="col-xs-3">
+              			<label>N side, Nd:</label> 
+                	</div>
+               		<div class="col-xs-6">
+              			<input class="form-control" type="text" id="pnd_NdCon" value="1e+15">
+                	</div>
+                	<div class="col-xs-3">
+              			<label>cm<sup>-3</sup></label>
+                	</div>
+                </div>
             </div>
-            <div class="col-xs-12">
-              <h3> <a href="#pnJunction">Diffusivity: </a></h3><br>
-              <form>
-                <label>Dp: </label><input type="text" id="pnd_diff_p" value = "33"><label>cm<sup>2</sup>/s</label><br>
-                <label>Dn: </label><input type="text" id="pnd_diff_n" value = "33"><label>cm<sup>2</sup>/s</label><br><br>
-                <label>Carrier Life Time</label><br>
-                <label>&tau;<sub>p</sub>:</label><input type="text" id="tau_p" value="1e-3"><label>s</label><br>
-                <label>&tau;<sub>n</sub>:</label><input type="text" id="tau_n" value="1e-3"><label>s</label><br><br><br>
-                <input type="reset" class= "btn btn-default" value="Reset">
-              </form>
+            	<br><br><br>
+            	<div class="row">
+              	<div class="col-xs-6">
+              		<div class="col-xs-3">
+              			<label>Bias:</label>
+              		</div>
+              		<div class="col-xs-6">
+              			<input class= "form-control" type="text" id="pnd_V_d" size="12" value="0">
+              		</div>
+              		<div class="col-xs-3">
+              			<label>V</label>
+              		</div>
+              	</div>
+              	<div class="col-xs-6">
+              		<div class="col-xs-3">
+              			<label>Area: </label>
+              		</div>
+              		<div class="col-xs-6">
+              			<input class= "form-control" type="text" id="pnd_A" size="12" value="1">
+              		</div>
+              		<div class="col-xs-3">
+              			<label>cm<sup>2</sup></label>
+              		</div>
+              	</div>
+              </div>
+              	<br> 
+            	<div class="row">
+              	<div class="col-xs-6">
+              		<div class="col-xs-3">
+              			<label>Wp: </label>
+              		</div>
+              		<div class="col-xs-6">
+              			<input class="form-control" type="text" id="pnd_Wp" size="12" value="1">
+              		</div>
+              		<div class="col-xs-3">
+              			<label> &mu;m</label>
+              		</div>
+              	</div>
+              	<div class="col-xs-6">
+              		<div class="col-xs-3">
+              			<label>Wn: </label>
+              		</div>
+              		<div class="col-xs-6">
+              			<input class="form-control" type="text" id="pnd_Wn" size="12" value="1">
+              		</div>
+              		<div class="col-xs-3">
+              			<label> &mu;m</label>
+              		</div>
+              	</div>
+              </div>
+             	 <br><br>
+           		<div class="row">
+              	<div class="col-xs-4 col-xs-offset-4">
+              		<button type ="button" onClick="Execute_pnd()" class= "btn btn-primary btn-block">
+                    	Calculate
+                    </button>
+              	</div>
+              	<br>
+              	<br>
+              	<div class="col-xs-4 col-xs-offset-4">
+              		<button type="reset" class= "btn btn-danger btn-block" >
+                    	Reset
+                    </button>
+              	</div>
+              </div>
+        	</form>
+        </div>
+        <br>  
+        <div class="row">  
+        <div class="row">
+        	<h3 class="text-center">
+            	<a href="#pnJunction">Diffusivity: </a>
+            </h3>
+        </div>
+        <div class="row">
+        <br>
+        	<form>
+            	<div class="row">
+                	<div class="col-xs-6">
+                		<div class="col-xs-3">
+                			<label>Dp: </label>
+                		</div>
+                		<div class="col-xs-6">
+                			<input class="form-control" type="text" id="pnd_diff_p" value = "33">
+                		</div>
+                		<div class="col-xs-3">
+                			<label>cm<sup>2</sup>/s</label>
+                		</div>
+                	</div>
+                	<div class="col-xs-6">
+                    	<div class="col-xs-3">
+                			<label>Dn: </label>
+                    	</div>
+                    	<div class="col-xs-6">
+                			<input class="form-control"type="text" id="pnd_diff_n" value = "33">
+                    	</div>
+                    	<div class="col-xs-3">
+                			<label>cm<sup>2</sup>/s</label>
+                    	</div>
+                	</div>
+                </div>
+                <br><br>
+                <div class="row">
+                	<h5 class="text-center">
+                    	Carrier Life Time
+                    </h5>
+                </div>
+                <br>
+                <div class="row">
+                	<div class="col-xs-6">
+                		<div class="col-xs-3">
+                			<label>&tau;<sub>p</sub>:</label>
+                		</div>
+                		<div class="col-xs-6">
+                			<input class="form-control" type="text" id="tau_p" value="1e-3">
+                		</div>
+                		<div class="col-xs-3">
+                			<label>s</label>
+                		</div>
+                	</div>
+                	<div class="col-xs-6">
+                		<div class="col-xs-3">
+                			<label>&tau;<sub>n</sub>:</label>
+                		</div>
+                		<div class="col-xs-6">
+                			<input class="form-control" type="text" id="tau_n" value="1e-3">
+                		</div>
+                		<div class="col-xs-3">
+                			<label>s</label>
+                		</div>
+                	</div>
+                </div>
+                <br><br><br>
+                <div class="row">
+                <div class="col-xs-4 col-xs-offset-4">
+                	<button type="reset" class= "btn btn-danger btn-block">
+                		Reset
+               		</button>
+                </div>
+                </div>
+            </form>
+        </div>
+        </div>
+              
+        <div class="row">
+        	<div class="row">
+            	<h3 class="text-center">Result</h3>
             </div>
-            <div class="col-xs-12">
-            	<h3>Result</h3><br>
+            <div class="row">
             	<form>
+                <div class="row">
+                <div class="col-xs-3">
                 <label>Built-in Potential =</label>
+                </div>
+                <div class="col-xs-6">
                 <input type="text" class="form-control" id="pnd_output_Potential" size="12"readonly>
+                </div>
+                <div class="col-xs-3">
                 <label>V </label>
+                </div>
+                </div>
                 <br>
+                <div class="row">
+                <div class="col-xs-6">
+                <div class="col-xs-3">
                 <label>Lp =</label>
+                </div>
+                <div class="col-xs-6">
                 <input type="text" class="form-control" id="pnd_output_Lp" size= "12" readonly>
+                </div>
+                <div class="col-xs-3">
                 <label>cm </label>
+                </div>
+                </div>
+                <div class="col-xs-6">
+                <div class="col-xs-3">
                 <label>Ln =</label>
+                </div>
+                <div class="col-xs-6">
                 <input type="text" class="form-control" id="pnd_output_Ln" size= "12" readonly>
+                </div>
+                <div class="col-xs-3">
                 <label>cm </label>
+                </div>
+                </div>
+                </div>
                 <br>
-                <label>X<sub>p</sub> =</label>
-                <input type="text" class= "form-control" id="pnd_output_depletionRegion_p" size="12" readonly>
-                <label>cm</label>
-                <label>X<sub>n</sub> =</label>
-                <input type="text" class= "form-control" id="pnd_output_depletionRegion_n" size="12" readonly>
-                <label>cm</label>
-                <label>X<sub>d</sub> =</label>
-                <input type="text" class="form-control" id="pnd_output_depletionRegion_d" size="12" readonly>
-                <label>cm</label>
-                <br>
-                <label>C<sub>j0</sub> =</label>
-                <input type="text" class="form-control" id="pnd_output_cj0" size="12"readonly>
-                <label>F</label>
-                <label>C<sub>j</sub> =</label>
-                <input type="text" class="form-control" id="pnd_output_cjb" size="12"readonly>
-                <label>F</label>
-                <label>C<sub>d</sub> =</label>
-                <input type="text" class="form-control" id="pnd_output_cd" size="12"readonly>
-                <label>F</label>
-                <br>
+                <div class="row">
+                <div class="col-xs-6">
+                <div class="col-xs-3">
                 <label>I<sub>0</sub> = </label>
+                </div>
+                <div class="col-xs-6">
                 <input type="text" class="form-control" id="pnd_output_I0" size="12" readonly>
+                </div>
+                <div class="col-xs-3">
                 <label>A</label>
+                </div>
+                </div>
+                <div class="col-xs-6">
+                <div class="col-xs-3">
                 <label>I<sub>d</sub> = </label>
+                </div>
+                <div class="col-xs-6">
                 <input type="text" class="form-control" id="pnd_output_Id" size="12" readonly>
-                <label>A</label><br>
+                </div>
+                <div class="col-xs-3">
+                <label>A</label>
+                </div>
+                </div>
+                </div>
+                <br>
+                <div class="row">
+                <div class="col-xs-6">
+                <div class="col-xs-3">
                 <label>g<sub>d</sub> =</label>
+                </div>
+                <div class="col-xs-6">
                 <input type="text" class= "form-control" id="pnd_output_gd" size="12" readonly>
+                </div>
+                <div class="col-xs-3">
                 <label>S</label>
+                </div>
+                </div>
+                <div class="col-xs-6">
+                <div class="col-xs-3">
                 <label>Transit Time =</label>
+                </div>
+                <div class="col-xs-6">
                 <input type="text" class= "form-control" id="pnd_output_transitTime" size="12" readonly>
+                </div>
+                <div class="col-xs-3">
                 <label>s</label>
+                </div>
+                </div>
+                </div> 
+                <br>
+                <div class="row">
+                <div class="col-xs-4">
+                <div class="col-xs-4">
+                <label>X<sub>p</sub> =</label>
+                </div>
+                <div class="col-xs-6">
+                <input type="text" class= "form-control" id="pnd_output_depletionRegion_p" size="12" readonly>
+                </div>
+                <div class="col-xs-2">
+                <label>cm</label>
+                </div>
+                </div>
+                <div class="col-xs-4">
+                <div class="col-xs-4">
+                <label>X<sub>n</sub> =</label>
+                </div>
+                <div class="col-xs-6">
+                <input type="text" class= "form-control" id="pnd_output_depletionRegion_n" size="12" readonly>
+                </div>
+                <div class="col-xs-2">
+                <label>cm</label>
+                </div>
+                </div>
+                <div class="col-xs-4">
+                <div class="col-xs-4">
+                <label>X<sub>d</sub> =</label>
+                </div>
+                <div class="col-xs-6">
+                <input type="text" class="form-control" id="pnd_output_depletionRegion_d" size="12" readonly>
+                </div>
+                <div class="col-xs-2">
+                <label>cm</label>
+                </div>
+                </div>
+                </div>
+                <br>
+                <div class="row">
+                <div class="col-xs-4">
+                <div class="col-xs-4">
+                <label>C<sub>j0</sub> =</label>
+                </div>
+                <div class="col-xs-6">
+                <input type="text" class="form-control" id="pnd_output_cj0" size="12"readonly>
+                </div>
+                <div class="col-xs-2">
+                <label>F</label>
+                </div>
+                </div>
+                <div class="col-xs-4">
+                <div class="col-xs-4">
+                <label>C<sub>j</sub> =</label>
+                </div>
+                <div class="col-xs-6">
+                <input type="text" class="form-control" id="pnd_output_cjb" size="12"readonly>
+                </div>
+                <div class="col-xs-2">
+                <label>F</label>
+                </div>
+                </div>
+                <div class="col-xs-4">
+                <div class="col-xs-4">
+                <label>C<sub>d</sub> =</label>
+                </div>
+                <div class="col-xs-6">
+                <input type="text" class="form-control" id="pnd_output_cd" size="12"readonly>
+                </div>
+                <div class="col-xs-2">
+                <label>F</label>
+                </div>
+                </div>
+                </div>
                 </form>
             </div>
         </div>
