@@ -392,12 +392,33 @@
             <br>
             <br>
             <div class="col-xs-4 col-xs-offset-4">
-              <button id="copybtn" class="btn btn-info btn-block" onclick="showAnsHistory();">
+              <button type = "button"id="copybtn" class="btn btn-info btn-block" data-toggle="modal" data-target="#PNHistory" onClick="showAnsHistory();">
                 <i class="fa fa-question-circle"></i> History
               </button>
             </div>
             <div>
-            <textarea id="historyArea" rows="80" cols="80" style="display:">
+            <!-- Modal -->
+            <div class="modal fade" id="PNHistory" tabindex="-1" role ="dialog" aria-labelledby="PNModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="PNHistoryResults">History Results</h4>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                    <p id="PNHistoryArea"></p>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <textarea id="historyArea" rows="80" cols="80" style="display:none">
               
             </textarea>
           </div>
@@ -405,6 +426,7 @@
     		  <br>
         </div>
       </div>
+    </div>
     <div class="row scroll_spy" id="cap_calc">
         <div class="col-xs-12" >
 	        <h3 class="text-center"> Cpacitance Calculator</h3><br><br>
@@ -1363,16 +1385,15 @@
 	      		<img src="graphs/MobilityCurve.png" class="img-responsive" alt="Mobility Curve">
 	      	</div>
     	</div>
-    </div>    
-  </div>
-    
-  <br><br><br>    
+    </div> 
+    </div>   
 </body>
+<br><br><br>    
 
 <footer class="text-center">
-  <a class="up-arrow" href="#top">
-    <span class="glyphicon glyphicon-chevron-up"></span>
-  </a><br><br>
-  <p></p>
-</footer>
+        <a class="up-arrow" href="#top">
+          <span class="glyphicon glyphicon-chevron-up"></span>
+        </a><br><br>
+        <p></p>
+      </footer>
 </html>

@@ -132,8 +132,8 @@ function showAnsHistory(){
 			ansHistoryBuffer+=tag2[i]+"\t"+ansQueue[0][i]+"\t"+ansQueue[1][i]+"\t"+ansQueue[2][i]+"\n";
 		}
 	}
-	var temp=document.getElementById('historyArea');
-	temp.value=ansHistoryBuffer;
+	var temp=document.getElementById('PNHistoryArea');
+	temp.innerHTML=ansHistoryBuffer;
 
 	
 }
