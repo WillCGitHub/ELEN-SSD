@@ -225,7 +225,7 @@
         <br>
         <div class="row">
         	<div class="col-xs-4 col-xs-offset-4">
-          	<input type="button" class="btn btn-primary btn-block" onClick="Execute_pn()" value="Calculate">
+          	<input type="button" class="btn btn-primary btn-block" onClick="Execute_pn();buildHistory();" value="Calculate">
             </div>
             <br>
             <br>
@@ -392,10 +392,14 @@
             <br>
             <br>
             <div class="col-xs-4 col-xs-offset-4">
-              <button id="copybtn" class="btn btn-info btn-block" onClick=" ">
+              <button id="copybtn" class="btn btn-info btn-block" onclick="showAnsHistory();">
                 <i class="fa fa-question-circle"></i> History
               </button>
             </div>
+            <div>
+            <textarea id="historyArea" rows="80" cols="80" style="display:">
+              
+            </textarea>
           </div>
    			  <br>
     		  <br>
