@@ -170,10 +170,39 @@
         </div>
         <div class="row">
         	<div class="col-xs-4 col-xs-offset-4">
-            <a href="#mob_curve" class="btn btn-block btn-info">
+            <button type = "button"id="copybtn" class="btn btn-info btn-block" data-toggle="modal" data-target="#mob_curve" >
             	<i class="fa fa-question-circle"></i>  Mobility Curve
-            </a>
+            </button>
           </div>
+          <!-- Modal -->
+
+            <div class="modal fade" id="mob_curve" tabindex="-1" role ="dialog" aria-labelledby="MobCurveModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="mob_curve">Mobility Curve</h4>
+                  </div>
+                  <div class="modal-body">
+                    <div class="img" id="mob_curve">
+                      
+                        
+                            <img src="graphs/MobilityCurve.png" class="img-responsive" alt="Mobility Curve">
+                       
+                    
+                    </div> 
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+       
+            <!-- Modal -->
+
         </div>
       </div>
       <div class="col-xs-12">
@@ -397,7 +426,9 @@
               </button>
             </div>
             <div>
+
             <!-- Modal -->
+
             <div class="modal fade" id="PNHistory" tabindex="-1" role ="dialog" aria-labelledby="PNModalLabel">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -418,9 +449,8 @@
                 </div>
               </div>
             </div>
-            <textarea id="historyArea" rows="80" cols="80" style="display:none">
-              
-            </textarea>
+       
+            <!-- Modal -->
           </div>
    			  <br>
     		  <br>
@@ -1379,13 +1409,7 @@
           </div>
         </div>
     </div>
-    <div class="img" id="mob_curve">
-  		<div clss="row">
-	    	<div class="col-xs-12">
-	      		<img src="graphs/MobilityCurve.png" class="img-responsive" alt="Mobility Curve">
-	      	</div>
-    	</div>
-    </div> 
+    
     </div>   
 </body>
 <br><br><br>    
