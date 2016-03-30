@@ -174,7 +174,7 @@
             	<i class="fa fa-question-circle"></i>  Mobility Curve
             </button>
           </div>
-          <!-- Modal -->
+          <!-- Modal Starts here -->
 
             <div class="modal fade" id="mob_curve" tabindex="-1" role ="dialog" aria-labelledby="MobCurveModalLabel">
               <div class="modal-dialog" role="document">
@@ -201,7 +201,7 @@
               </div>
             </div>
        
-            <!-- Modal -->
+            <!-- Modal Ends here  -->
 
         </div>
       </div>
@@ -254,7 +254,7 @@
         <br>
         <div class="row">
         	<div class="col-xs-4 col-xs-offset-4">
-          	<input type="button" class="btn btn-primary btn-block" onClick="Execute_pn();buildHistory();" value="Calculate">
+          	<input type="button" class="btn btn-primary btn-block" onClick="Execute_pn();buildHistory();showAnsHistory();" value="Calculate">
             </div>
             <br>
             <br>
@@ -421,16 +421,16 @@
             <br>
             <br>
             <div class="col-xs-4 col-xs-offset-4">
-              <button type = "button"id="copybtn" class="btn btn-info btn-block" data-toggle="modal" data-target="#PNHistory" onClick="showAnsHistory();">
+              <button type = "button"id="copybtn" class="btn btn-info btn-block" data-toggle="modal" data-target="#PNHistory" >
                 <i class="fa fa-question-circle"></i> History
               </button>
             </div>
             <div>
 
-            <!-- Modal -->
+            <!-- Modal Starts Here-->
 
             <div class="modal fade" id="PNHistory" tabindex="-1" role ="dialog" aria-labelledby="PNModalLabel">
-              <div class="modal-dialog" role="document">
+              <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -440,8 +440,28 @@
                   </div>
                   <div class="modal-body">
                     <div class="row">
-                    <p id="PNHistoryArea"></p>
-                    </div>
+                    
+                    
+                    
+                      <table class="table" >
+                      <tbody id="PNHistoryArea">
+                        <tr>
+                          <th> # </th>
+                          <th>Potential</th>
+                          <th>Current Density (h)</th>
+                          <th>Current Density (e)</th>
+                          <th>Resistivity p</th>    
+                          <th>Resistivity n</th>   
+                          <th>X_p</th>   
+                          <th>X_n</th> 
+                          <th>X_d</th> 
+                          <th>Cappacitance</th>
+                        </tr>
+                       </tbody>
+                      </table>
+                    
+                  
+              
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -450,7 +470,7 @@
               </div>
             </div>
        
-            <!-- Modal -->
+            <!-- Modal Ends Here-->
           </div>
    			  <br>
     		  <br>
@@ -1412,8 +1432,6 @@
     
     </div>   
 </body>
-<br><br><br>    
-
 <footer class="text-center">
         <a class="up-arrow" href="#top">
           <span class="glyphicon glyphicon-chevron-up"></span>
