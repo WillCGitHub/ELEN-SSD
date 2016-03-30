@@ -40,7 +40,7 @@
 	 .navbar-collapse{margin-left:10px; padding-left:30px;}
    	 .vertical-centered{margin:0; top: 50%;transform: translateY(50%);}
    	 .body-bgc{background-color:rgb(250,255,250);}
-	 footer {background-color: #2d2d30;color: #f5f5f5;padding: 32px;}
+	 footer {background-color: #2d2d30;color: #f5f5f5;padding: 32px; width:100%;}
 	 footer a {color: #f5f5f5;}
 	 footer a:hover {color: #777;text-decoration: none;}
 	</style>
@@ -170,10 +170,39 @@
         </div>
         <div class="row">
         	<div class="col-xs-4 col-xs-offset-4">
-            <a href="#mob_curve" class="btn btn-block btn-info">
+            <button type = "button"id="copybtn" class="btn btn-info btn-block" data-toggle="modal" data-target="#mob_curve" >
             	<i class="fa fa-question-circle"></i>  Mobility Curve
-            </a>
+            </button>
           </div>
+          <!-- Modal Starts here -->
+
+            <div class="modal fade" id="mob_curve" tabindex="-1" role ="dialog" aria-labelledby="MobCurveModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="mob_curve">Mobility Curve</h4>
+                  </div>
+                  <div class="modal-body">
+                    <div class="img" id="mob_curve">
+                      
+                        
+                            <img src="graphs/MobilityCurve.png" class="img-responsive" alt="Mobility Curve">
+                       
+                    
+                    </div> 
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+       
+            <!-- Modal Ends here  -->
+
         </div>
       </div>
       <div class="col-xs-12">
@@ -225,7 +254,7 @@
         <br>
         <div class="row">
         	<div class="col-xs-4 col-xs-offset-4">
-          	<input type="button" class="btn btn-primary btn-block" onClick="Execute_pn();buildHistory();" value="Calculate">
+          	<input type="button" class="btn btn-primary btn-block" onClick="Execute_pn();buildHistory();showAnsHistory();" value="Calculate">
             </div>
             <br>
             <br>
@@ -392,14 +421,16 @@
             <br>
             <br>
             <div class="col-xs-4 col-xs-offset-4">
-              <button type = "button"id="copybtn" class="btn btn-info btn-block" data-toggle="modal" data-target="#PNHistory" onClick="showAnsHistory();">
+              <button type = "button"id="copybtn" class="btn btn-info btn-block" data-toggle="modal" data-target="#PNHistory" >
                 <i class="fa fa-question-circle"></i> History
               </button>
             </div>
             <div>
-            <!-- Modal -->
+
+            <!-- Modal Starts Here-->
+
             <div class="modal fade" id="PNHistory" tabindex="-1" role ="dialog" aria-labelledby="PNModalLabel">
-              <div class="modal-dialog" role="document">
+              <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -409,8 +440,28 @@
                   </div>
                   <div class="modal-body">
                     <div class="row">
-                    <p id="PNHistoryArea"></p>
-                    </div>
+                    
+                    
+                    
+                      <table class="table" >
+                      <tbody id="PNHistoryArea">
+                        <tr>
+                          <th> # </th>
+                          <th>Potential</th>
+                          <th>Current Density (h)</th>
+                          <th>Current Density (e)</th>
+                          <th>Resistivity p</th>    
+                          <th>Resistivity n</th>   
+                          <th>X_p</th>   
+                          <th>X_n</th> 
+                          <th>X_d</th> 
+                          <th>Cappacitance</th>
+                        </tr>
+                       </tbody>
+                      </table>
+                    
+                  
+              
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -418,14 +469,14 @@
                 </div>
               </div>
             </div>
-            <textarea id="historyArea" rows="120" cols="120" style="display:none">
-              
-            </textarea>
+       
+            <!-- Modal Ends Here-->
           </div>
    			  <br>
     		  <br>
         </div>
       </div>
+    </div>
     </div>
     <div class="row scroll_spy" id="cap_calc">
         <div class="col-xs-12" >
@@ -1379,21 +1430,15 @@
           </div>
         </div>
     </div>
-    <div class="img" id="mob_curve">
-  		<div clss="row">
-	    	<div class="col-xs-12">
-	      		<img src="graphs/MobilityCurve.png" class="img-responsive" alt="Mobility Curve">
-	      	</div>
-    	</div>
-    </div> 
+    
     </div>   
 </body>
-<br><br><br>    
 
-<footer class="text-center">
-        <a class="up-arrow" href="#top">
+<footer class="">
+        <h5 class="up-arrow text-center" href="#top">
           <span class="glyphicon glyphicon-chevron-up"></span>
-        </a><br><br>
-        <p></p>
-      </footer>
+        </h5>
+
+</footer>
+
 </html>

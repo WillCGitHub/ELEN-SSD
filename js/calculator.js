@@ -75,10 +75,11 @@ function Calculate_pn(NaCon,NdCon,mobility,electricField){
 	var display_capacitance = document.getElementById("output_capacitance");
 
 	display_Potential.value = (phi_b.toFixed(2));//match the order
-	display_currentDen_p.value = (currentDensity_p); 
-	display_currentDen_n.value = (currentDensity_n); 
-	display_resistivity_p.value = (res_p.toExponential());
-	display_resistivity_n.value = (res_n.toExponential());
+	display_currentDen_p.value = (currentDensity_p.toFixed(3)); 
+	display_currentDen_n.value = (currentDensity_n.toFixed(3));
+	display_resistivity_p.value = (res_p.toExponential(2));
+
+	display_resistivity_n.value = (res_n.toExponential(2));
 	display_depRegion_p.value = (x_po.toFixed(2));
 	display_depRegion_n.value = (x_no.toFixed(2));
 	display_depRegion_d.value = (x_d.toFixed(2));

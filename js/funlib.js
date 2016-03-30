@@ -10,6 +10,10 @@ function CopyToClip(){
 /*
 	Copy the data in the text field
 */
+
+var historyTime = 0 //gloabal constant that records how many history does it store
+
+
 function copyTextToClipboard(){
 	
 	//compute ans
@@ -79,7 +83,7 @@ function buildAnsString(){
 	for(i=0;i<9;i++){
 		buffer=buffer+tag[i]+" "+data[i]+"\n";
 	}
-
+	
 	return buffer;
 }
 ///////////////////////////////////////////////////////////
@@ -115,13 +119,29 @@ function saveAnswerToQueue(ansToSave){
 
 }
 
+
 function showAnsHistory(){
-	ansHistoryBuffer="";
+	historyTime = historyTime+1;
+	
 
-	//build ansbuffer
-	var tag2=["Potential:", "Ip:\t   ","In:\t   ","Rp:\t    ","Rn:\t    ","DR_p:","DR_n:","DR_d:","Cap:\t    "];
+	
 
-	var l=ansQueue.length;
+	
+	var node=document.getElementById('PNHistoryArea');
+	var newNode =  document.createElement('tr');
+	id = "PNHR"+historyTime;
+	newNode.setAttribute("id",id)
+	node.appendChild(newNode);
+
+	createTd(id,historyTime)
+	for (i=0;i<9;i++){
+		content = ansQueue[0][i];
+		createTd(id,content);
+	}
+	
+
+	//temp.innerHTML=ansHistoryBuffer;
+	/*
 	for(i=0;i<9;i++){
 		if(l==1){
 			ansHistoryBuffer+=tag2[i]+"\t"+ansQueue[0][i]+"\n";
@@ -134,6 +154,19 @@ function showAnsHistory(){
 	}
 	var temp=document.getElementById('PNHistoryArea');
 	temp.innerHTML=ansHistoryBuffer;
-
+	*/
 	
 }
+
+function createTd(ID,content) {
+	console.log(ID)
+	var tr = document.getElementById(ID)
+    var newTd = document.createElement("td");
+    newTd.appendChild(document.createTextNode(content));
+    tr.appendChild(newTd);
+}
+
+
+
+
+
