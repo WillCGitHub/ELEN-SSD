@@ -134,12 +134,23 @@ function showAnsHistory(){
 	node.appendChild(newNode);
 
 	createTd(id,historyTime)
-	for (i=0;i<9;i++){
-		content = ansQueue[0][i];
-		createTd(id,content);
+	l=ansQueue.length;
+	if(l==1){
+		for (i=0;i<9;i++){
+			content = ansQueue[0][i];
+			createTd(id,content);
+		}
+	}else if(l==2){
+			for (i=0;i<9;i++){
+			content = ansQueue[1][i];
+			createTd(id,content);
+		}
+	}else{
+		for (i=0;i<9;i++){
+			content = ansQueue[2][i];
+			createTd(id,content);
+		}
 	}
-	
-
 	//temp.innerHTML=ansHistoryBuffer;
 	/*
 	for(i=0;i<9;i++){
