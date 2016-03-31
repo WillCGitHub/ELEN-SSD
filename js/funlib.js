@@ -30,8 +30,9 @@ function copyTextToClipboard(){
 }
 
 /*
-	create a hiidden text field by fieldId
+	create a hidden text field by fieldId
 */ 
+/*
 function buildTempTextArea(fieldId){
 	var textArea=document.createElement("textarea");
 	textArea.setAttribute("id",fieldId);
@@ -55,7 +56,7 @@ function buildTempTextArea(fieldId){
 
 	return textArea;
 }
-
+*/
 /*
 	Function to build a well format string(text) 	
 */
@@ -169,6 +170,7 @@ function showAnsHistory(){
 	
 }
 
+//create a table cell
 function createTd(ID,content) {
 	console.log(ID)
 	var tr = document.getElementById(ID)
